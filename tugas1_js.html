@@ -1,0 +1,28 @@
+<script language ="javascript">
+
+	var nama_pegawai = "Ridwan";
+	var jabatan ="Manager";
+	var status  ="Menikah";
+	if (jabatan == 'Manager') {
+		gaji_pokok = 15000000;
+	}else if (jabatan == 'Asisten Manager') {
+		gaji_pokok = 10000000;
+	}else if (jabatan == 'Staff') {
+		gaji_pokok = 5000000;
+	}else {
+		gaji_pokok=0;
+	}
+	let tun_jab = 0.15* gaji_pokok
+	let bpjs = 0.1*gaji_pokok;
+	//ternary
+	if (status == 'Menikah') tun_kel = 0.2 * gaji_pokok;
+		else tun_kel = 0;
+	let total = gaji_pokok + tun_jab + bpjs + tun_kel;	
+	//cetak
+	document.write("<br><h2>Data Pegawai</h2>" +
+		"Nama Pegwai : "+nama_pegawai+
+		"<br> Jabatan : "+jabatan+
+		"<br> Status : "+status);
+
+	document.write(`<table cellpadding='10' cellspacing='0' width='30%' border='1'><thead bgcolor='grey'><th>Data</th> <th>Keterangan</th></thead> <tr><td>Gaji Pokok</td> <td>Rp. ${gaji_pokok}</td></tr> <tr><td>Tunjangan Jabatan</td> <td>Rp. ${tun_jab}</td></tr> <tr><td>BPJS</td> <td>Rp. ${bpjs} </td></tr> <tr><td>Tunjangan Keluarga</td> <td>Rp. ${tun_kel}</td></tr> <tfoot bgcolor='grey'><th>Total</th> <th align='left'>Rp. ${total}</th></table>`)
+</script>
