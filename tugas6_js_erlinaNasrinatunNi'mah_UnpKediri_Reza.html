@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tugas 6 JS</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+	<br>
+	<h3 align="center">Table Intensitas Gempa Bumi</h3>
+	<br>
+	<table align="center" cellpadding="12" class="table-bordered">
+  		<thead>
+    <tr bgcolor="grey">
+      <th scope="col">No</th>
+      <th scope="col">Lokasi</th>
+      <th scope="col">Skala</th>
+      <th scope="col">Dampak</th>
+    </tr>
+  </thead>
+		<tbody id="tb_gempa"></tbody>
+</body>
+</html>
+<script>
+	let no = 1;
+	class Gempa{
+		constructor(lokasi, skala, dampakgempa){
+			this.lokasi=lokasi;
+			this.skala=skala;
+			this.dampakgempa = dampakgempa;
+		}
+		getDampak(){
+			if(this.skala <=2){
+				this.dampakgempa = 'Tidak Terasa';
+			}
+			else if(this.skala > 2 && this.skala <=4){
+				this.dampakgempa = 'Bangunan Retak-retak';
+			}
+			else if(this.skala > 4 && this.skala <=6){
+				this.dampakgempa = 'Bangunan Roboh';
+			}
+			else if(this.skala > 6){
+				this.dampakgempa = 'Bangunan Roboh dan Berpotensi Tsunami';
+			}
+			return this.dampakgempa;
+		}
+
+		infoGempa(){
+			document.write( `<tr>
+			<td  scope="row">${no++}</td>
+			<td>${this.lokasi}</td>
+			<td>${this.skala}</td>
+			<td>${this.getDampak()}</td>
+			</tr>`);
+		}
+	}
+g1 = new Gempa ('London',3);
+g2 = new Gempa ('Amerika', 7);
+g3 = new Gempa ('Indonesia',5);
+g4 = new Gempa ('jepang',6);
+g5 = new Gempa ('Korea Selatan',7);
+g6 = new Gempa ('Korea Utara',4);
+g7 = new Gempa ('Swiss',8);
+g8 = new Gempa ('Afrika',3);
+g9 = new Gempa ('NewZeland',5);
+g10 = new Gempa ('Pakistan',4);
+
+g1.infoGempa();
+g2.infoGempa();
+g3.infoGempa();
+g4.infoGempa();
+g5.infoGempa();
+g6.infoGempa();
+g7.infoGempa();
+g8.infoGempa();
+g9.infoGempa();
+g10.infoGempa();
+</script>
+</table>
